@@ -1,0 +1,75 @@
+"use client"
+
+import Head from 'next/head';
+import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import Img from './components/Img';
+import { fetchRecords } from './utils/fetch'; // Assuming fetchData.js is in the same directory
+import styles from "./page.module.css";
+
+
+export default function Home() {
+  const [records, setRecords] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedRecords = await fetchRecords();
+        setRecords(fetchedRecords);
+        console.log(fetchedRecords);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      {isLoading ? (
+        <div className='loader'>
+          <div id="c-2">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <filter id="shadow">
+                  <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#fc6767" />
+                </filter>
+              </defs>
+              <circle id="spinner" cx="50" cy="50" r="45" />
+            </svg>
+          </div>
+        </div>
+
+      ) : error ? (
+        <div className={styles.error}>
+          <div className={styles.div}><h1 className={styles.errorh1}>Error : </h1><span className={styles.errormain}> {error}</span>
+          </div>
+          <span className={styles.errordes}>Oop, Something went Wrong</span>
+        </div>
+      ) : (
+        <><head>
+              <title>MovieSagar</title>
+            </head>
+            <div className={styles.container}>
+                <div className={styles.wrapper}>
+                  {records.map((record) => (            
+                      <div onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>
+                        <div className={styles.imagecard}>
+                          <Img className={styles.Img} src={record?.fields?.poster[0]?.url} />
+                        </div>
+                        <div className={styles.flex}><h3 className={styles.date}>{record?.createdTime}</h3></div>
+                        <h4 className={styles.title}>{record?.fields?.Name}</h4>
+                      </div>
+                  ))}
+                </div>
+              </div></>
+      )}
+    </>
+  );
+}

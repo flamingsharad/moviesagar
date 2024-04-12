@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.wrapper {
+    display: flex;
+    align-content: center;
+    margin: auto auto;
+    flex-wrap: wrap;
+    width: 80%;
+    gap: 15px;
+    padding: 15px;
+    background-color: #111111c6;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.line{
+    height: 2px;
+    width: 95%;
+    background-color: rgba(240, 248, 255, 0.289);
+}
+.p{
+    color: orange;
+}
+.pp{
+    color: rgba(0, 191, 255, 0.799);
+}.ppp{
+    color: red;
+}
+.color{
+    color: yellow;
+}
+.flexx {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.pd{
+    color: gold;
+}
+.text{
+    text-align: center;
+    color: goldenrod;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.movie{
+    font-size: 18px;
+    font-weight: 500;
+}
+.screen{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 2.5rem;
+    color: rgb(255, 221, 0);
+}
+
+.imgcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.img{
+    height: 800px;
+    width: 100%;
+}
