@@ -22,7 +22,6 @@ export default function Detail() {
 
   function formatDate(dateString) {
     const date = new Date(dateString); // Parse the date string into a Date object
-
     const day = String(date.getDate()).padStart(2, '0'); // Get day with leading zero (01-31)
     const month = date.toLocaleString('en-US', { month: 'long' }); // Get month name (April)
     const year = date.getFullYear();

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const apiKey = process.env.NEXT_API_KEY;
-const baseId = NEXT_AIRTABLE_BASE_ID;
+const baseId = process.env.NEXT_AIRTABLE_BASE_ID;
 const tableName = process.env.NEXT_AIRTABLE_TABLE_NAME; // Replace with the actual table name
 
 const axiosInstance = axios.create({
