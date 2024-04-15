@@ -47,6 +47,8 @@
   }
   
   .date {
+    position: relative;
+    left: -653px;
     color: gray;
     font-size: 12px;
     margin-right: 0; /* Remove large margin */
