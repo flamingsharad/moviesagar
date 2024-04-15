@@ -1,6 +1,7 @@
+"use server"
 import axios from 'axios';
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiKey = process.env.NEXT_API_KEY;
 const baseId = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID;
 const tableName = "tblObYzqeQ0rurO97"; // Replace with the actual table name
 

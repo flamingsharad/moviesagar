@@ -12,16 +12,6 @@ export default function Home() {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-
-    return `${day}-${month}-${year}`;
-  }
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,18 +32,18 @@ export default function Home() {
     <>
       {isLoading ? (
         <>
-          <div className='loader'>
-            <div id="c-2">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <filter id="shadow">
-                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#fc6767" />
-                  </filter>
-                </defs>
-                <circle id="spinner" cx="50" cy="50" r="45" />
-              </svg>
-            </div>
+        <div className='loader'>
+          <div id="c-2">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <filter id="shadow">
+                  <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#fc6767" />
+                </filter>
+              </defs>
+              <circle id="spinner" cx="50" cy="50" r="45" />
+            </svg>
           </div>
+        </div>
         </>
       ) : error ? (
         <>
@@ -83,12 +73,7 @@ export default function Home() {
                   <div className={styles.imagecard}>
                     <Img className={styles.Img} src={record?.fields?.poster[0]?.url} />
                   </div>
-                  <div className={styles.flex}><h3 className={styles.date}>
-                    {record?.createdTime
-                      ? formatDate(record.createdTime) // Call formatDate function if createdTime exists
-                      : 'No date available' // Display default message if createdTime is undefined or null
-                    }
-                  </h3></div>
+                  <div className={styles.flex}><h3 className={styles.date}>{record?.createdTime}</h3></div>
                   <h4 className={styles.title}>{record?.fields?.Name}</h4>
                 </div>
               ))}
