@@ -12,10 +12,25 @@ const axiosInstance = axios.create({
   },
 });
 
-export async function fetchRecords() {
+
+export async function fetchRecords() { // Pass optional search term
   try {
-    const response = await axiosInstance.get(`/${baseId}/${tableName}`);
+    const url = `/${baseId}/${tableName}`; // Fetch all records if no search term
+
+    const response = await axiosInstance.get(url);
     const records = response.data.records;
+    return records;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error; // Re-throw to handle in components
+  }
+}
+export async function fetchRecordsSearch(searchTerm = '') { // Pass optional search term
+  try {
+    const url = `/${baseId}/${tableName}?filterByFormula=SEARCH(${searchTerm}, Name)` // Filter by Name field
+
+    const response = await axiosInstance.get(url);
+    const records = response.data;
     return records;
   } catch (error) {
     console.error('Error fetching data:', error);

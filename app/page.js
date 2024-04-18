@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import Img from './components/Img';
+import { TextOverflowWithEllipsis } from './components/wrapper';
 import { fetchRecords } from './utils/fetch'; // Assuming fetchData.js is in the same directory
 import styles from "./page.module.css";
 
@@ -89,7 +90,9 @@ export default function Home() {
                       : 'No date available' // Display default message if createdTime is undefined or null
                     }
                   </h3></div>
-                  <h4 className={styles.title}>{record?.fields?.Name}</h4>
+                  <TextOverflowWithEllipsis className={styles.title} maxCharacters={120}>
+                    {record?.fields?.Name}
+                  </TextOverflowWithEllipsis>
                 </div>
               ))}
             </div>
