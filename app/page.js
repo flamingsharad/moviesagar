@@ -5,6 +5,7 @@ import Img from './components/Img';
 import { TextOverflowWithEllipsis } from './components/wrapper';
 import { fetchRecords } from './utils/fetch'; // Assuming fetchData.js is in the same directory
 import styles from "./page.module.css";
+import { CiCalendar } from "react-icons/ci";
 
 
 export default function Home() {
@@ -80,11 +81,13 @@ export default function Home() {
           <div className={styles.container}>
             <div className={styles.wrapper}>
               {records.map((record) => (
-                <div onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>
+                <article onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>
                   <div className={styles.imagecard}>
                     <Img className={styles.Img} src={record?.fields?.poster[0]?.url} />
                   </div>
-                  <div className={styles.flex}><h3 className={styles.date}>
+                  <div className={styles.flexx}>
+                    <CiCalendar className={styles.icon} />
+                    <h3 className={styles.date}>
                     {record?.createdTime
                       ? formatDate(record.createdTime) // Call formatDate function if createdTime exists
                       : 'No date available' // Display default message if createdTime is undefined or null
@@ -93,7 +96,7 @@ export default function Home() {
                   <TextOverflowWithEllipsis className={styles.title} maxCharacters={120}>
                     {record?.fields?.Name}
                   </TextOverflowWithEllipsis>
-                </div>
+                </article>
               ))}
             </div>
           </div></>

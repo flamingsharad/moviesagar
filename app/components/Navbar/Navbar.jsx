@@ -19,6 +19,12 @@ const Navbar = () => {
       router.push(`/search/${searchTerm}`); // Navigate to the search route with the query
     }
   };
+  const handleClick = (event) => {
+    if (searchTerm !== "") {
+      event.preventDefault(); // Prevent default form submission behavior
+      router.push(`/search/${searchTerm}`); // Navigate to the search route with the query
+    }
+  };
 
   const handleSubmit = (event) => {
     // This form submission handler is optional if you prefer relying solely on Enter key press
@@ -69,7 +75,11 @@ const Navbar = () => {
                     placeholder="Search..."
                     className={styles.inputsearch}
                   />
-                  <button type="submit" className={styles.search}>
+                  <button
+                    type="submit"
+                    onClick={handleClick}
+                    className={styles.search}
+                  >
                     <FaSearch className={styles.icon} />
                   </button>
                 </form>
