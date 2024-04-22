@@ -78,7 +78,6 @@ const Navbar = () => {
                     placeholder="Search..."
                     onKeyDown={handleKeyDown}
                     type="search"
-                    placeholder="Search..."
                     className={styles.inputsearch}
                   />
                   <button
