@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import { useRouter, usePathname } from 'next/navigation';
-import { fetchRecordById } from '../../utils/fetch';
+import { fetchRecordById, fetchNotice } from '../../utils/fetch';
 import { FaCalendarAlt } from "react-icons/fa";
 import Img from '../../components/Img'; // Replace with your actual image component
 
 
 export default function Detail() {
   const [record, setRecord] = useState(null);
+  const [notice, setNotice] = useState([]);
   const [Null, setNull] = useState(1);
   const [genre, setGenre] = useState([]);
   const [images, setImages] = useState([]);
@@ -39,17 +40,26 @@ export default function Detail() {
         setRecord(fetchedRecord);
         setGenre(fetchedRecord.fields.genre)
         setImages(fetchedRecord.fields.images)
-        return {
-          title: fetchRecord?.fields?.name,
-        }
       } catch (error) {
         setError(error.message);
       } finally {
         setIsLoading(false);
       }
     };
+    const fetchImp = async () =>{
+      try {
+        const notices = await fetchNotice();
+        setNotice(notices);
+        console.log(notice)
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
     fetchRecord();
+    fetchImp();
   }, []);
 
   return (
@@ -78,6 +88,7 @@ export default function Detail() {
       ) : record ? (
           <><head>
               <title>{record?.fields?.Name}</title>
+              <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"></meta>
             </head><main>
                 <div className={styles.container}>
                   <div className={styles.wrapper}>
@@ -104,7 +115,7 @@ export default function Detail() {
                         ))}
 
                       </div>
-                      <div><span className={styles.pd}>MovieSagar </span>{record?.fields?.about}</div>
+                      <div><span className={styles.pd}>MovieSagar </span>{notice?.fields?.Name}</div>
                       <div className={styles.text}>{record?.fields?.Name}</div>
                       <span className={styles.movie}>Movie Info:</span>
                       <div className={styles.screen}>Screenshots: (Must See Before Downloading)…</div>

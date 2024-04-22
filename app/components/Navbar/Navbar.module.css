@@ -50,6 +50,11 @@
 .li:hover , .font:hover, .font:focus{
     color: red;
 }
+.icc{
+  color:#111111c6;
+  font-weight: 500;
+  font-size: 16px;
+}
 .opt{
     text-decoration: none;
     border: 0px;

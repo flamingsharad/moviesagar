@@ -30,6 +30,13 @@
   padding: 15px;
   background-color: #111111c6;
 }
+.wrapper21 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: auto auto;
+  flex-wrap: wrap;
+}
 .wrapper4 {
   display: flex;
   align-content: center;
@@ -40,7 +47,6 @@
   gap: 15px;
 }
 .wrapper3 {
-  display: flex;
   align-content: center;
   justify-content: center;
   margin: auto auto;

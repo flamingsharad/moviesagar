@@ -50,7 +50,7 @@ const SearchPage = () => {
       <div className={styles.container}>
         <div className={styles.wrapper3}>
           <h1>Search Results for "{extractedID}"</h1>
-          <div className={styles.wrapper2}>
+          <div className={styles.wrapper21}>
           {records.map((record) => (
             <article onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>
               <div className={styles.imagecard}>

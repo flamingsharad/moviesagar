@@ -15,7 +15,7 @@ const axiosInstance = axios.create({
 
 export async function fetchRecords() { // Pass optional search term
   try {
-    const url = `/${baseId}/${tableName}?maxRecords=20&pagesize=1000`; // Fetch all records if no search term
+    const url = `/${baseId}/${tableName}?view=viwQVwr9YQ0mQJUZd`; // Fetch all records if no search term
 
     const response = await axiosInstance.get(url);
     const records = response.data.records;
@@ -25,12 +25,31 @@ export async function fetchRecords() { // Pass optional search term
     throw error; // Re-throw to handle in components
   }
 }
+export async function fetchNotice() {
+  try {
+    // Assuming `baseId` is defined elsewhere
+    const url = `/${baseId}/tblohlPnc7Maxxoin`; // Specific record ID, not fetching all
+
+    const response = await axiosInstance.get(url);
+    const records = response.data.records; // Assuming data structure has 'records' property
+
+    if (records.length > 0) {
+      return records[0]; // Return the first record (assuming only one notice)
+    } else {
+      return null; // Return null if no record found
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error; // Re-throw to handle in components
+  }
+}
+
 export default async function fetchRecordsSearch(searchTerm = '') { // Pass optional search term
   try {
     const url = `/${baseId}/${tableName}?filterByFormula=SEARCH("${searchTerm}",Name)` // Filter by Name field
     const response = await axiosInstance.get(url);
     const records = response.data.records;
-    console.log(records)
+    // console.log(records)
     return records;
   } catch (error) {
     console.error('Error fetching data:', error);
