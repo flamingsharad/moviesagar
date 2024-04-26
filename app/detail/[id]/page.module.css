@@ -26,7 +26,6 @@
   /* Flex Items (Adjust styles for specific elements) */
   
   .flex {
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%; /* Ensure full width on smaller screens */
@@ -47,8 +46,6 @@
   }
   
   .date {
-    position: relative;
-    left: -653px;
     color: gray;
     font-size: 12px;
     margin-right: 0; /* Remove large margin */
@@ -62,7 +59,17 @@
   .pp {
     color: rgba(0, 191, 255, 0.799);
   }
-  
+  .btn{
+    width: 15rem;
+    background-color: green;
+    height: 3rem;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .ppp {
     color: red;
   }
@@ -73,6 +80,13 @@
   
   .flexx {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .flexd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 2rem;
   }
@@ -111,4 +125,46 @@
     max-height: 800px; /* Adjust as needed for your images */
     width: 100%;
   }
-   
+  @media only screen and (max-width: 767px) {
+    .container{
+      display: block;
+      width: 99%;
+    }
+    .wrapper{
+      overflow-x: hidden;
+      justify-content: center;
+      margin: 0;
+      width: 100%;
+    }
+    .titlel{
+      font-size: 1rem;
+    }
+    .text{
+      font-size: 1rem;
+    }
+    .date{
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .flexx{
+      width: 100%;
+      gap: 1rem;
+    }
+    .movie{
+      display: none;
+    }
+    .screen{
+      font-size: 1rem;
+    }
+    .fgh{
+      font-size: 1rem;
+    }
+    .ddff{
+      flex-direction: column;
+      padding-left: 0.5rem;
+
+      font-size: 0.7rem;
+    }
+  }

@@ -92,7 +92,7 @@ export default function Detail() {
             </head><main>
                 <div className={styles.container}>
                   <div className={styles.wrapper}>
-                    <h1>{record?.fields?.Name}</h1>
+                    <h1 className={styles.titlel} >{record?.fields?.Name}</h1>
                     <div className={styles.flex}>
                       <h3 className={styles.date}>
                         <FaCalendarAlt className={styles.cal} />
@@ -104,7 +104,7 @@ export default function Detail() {
                       <div className={styles.line}></div>
                     </div>
                     <div className={styles.flexx}>
-                      <div>✅ Download {record?.fields?.title}. This is a {record?.fields?.country} movie and Available in
+                      <div className={styles.ddff} >✅ Download {record?.fields?.title}. This is a {record?.fields?.country} movie and Available in
                         <span className={styles.p}>480p,</span>
                         <span className={styles.pp}> 720p,</span> and
                         <span className={styles.ppp}> 1080p</span> in MKV Format. This is one of the best movie based on
@@ -115,7 +115,7 @@ export default function Detail() {
                         ))}
 
                       </div>
-                      <div><span className={styles.pd}>MovieSagar </span>{notice?.fields?.Name}</div>
+                      <div className={styles.ddff} ><span className={styles.pd}>MovieSagar </span>{notice?.fields?.Name}</div>
                       <div className={styles.text}>{record?.fields?.Name}</div>
                       <span className={styles.movie}>Movie Info:</span>
                       <div className={styles.screen}>Screenshots: (Must See Before Downloading)…</div>
@@ -125,6 +125,14 @@ export default function Detail() {
                         ))}
                       </div>
                       <div className={styles.lines}></div>
+                      <div className={styles.flexd}>
+                        <h1 className={styles.fgh} >480p</h1>
+                        <a className={styles.btn} target='_blank' href={record?.fields.low}><h4 className={styles.text} >Download Now</h4></a>
+                        <h1 className={styles.fgh}>720p</h1>
+                        <a className={styles.btn} target='_blank' href={record?.fields.mid}><h4 className={styles.text} >Download Now</h4></a>
+                        <h1 className={styles.fgh}>1080p</h1>
+                        <a className={styles.btn} target='_blank' href={record?.fields.high}><h4 className={styles.text} >Download Now</h4></a>
+                        </div>
                     </div>
                   </div>
                 </div></main></>

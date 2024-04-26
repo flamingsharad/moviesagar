@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from '../../page.module.css'
 import { CiCalendar } from "react-icons/ci";
 import { TextOverflowWithEllipsis } from '../../components/wrapper';
@@ -12,6 +12,7 @@ const SearchPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const currentPathname = usePathname();
+  const router = useRouter();
   const regex = /^\/search\/(.*)$/;
   const match = currentPathname.match(regex);
   const extractedID = match ? decodeURIComponent(match[1]) : ''; // Regular expression to extract ID from URL
