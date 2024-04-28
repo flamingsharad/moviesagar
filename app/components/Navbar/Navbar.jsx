@@ -21,12 +21,12 @@ const Navbar = () => {
       event.preventDefault(); 
       if (searchTerm !== "") {
         if(! toast.isActive(toastId.current)) {
-          toastId.current = toast(<h1 className={styles.icc}>"1 min ruk!!"</h1>);
+          toastId.current = toast(<h1 className={styles.icc}>1 min ruk!!</h1>);
         }
         router.push(`/search/${searchTerm}`); // Navigate to the search route with the query
       } else {
         if(! toast.isActive(toastId.current)) {
-          toastId.current = toast(<h1 className={styles.icc}>"Search is Empty Bro!"</h1>);
+          toastId.current = toast(<h1 className={styles.icc}>Search is Empty Bro!</h1>);
         }
       }
     }

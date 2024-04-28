@@ -60,7 +60,7 @@ export default function Detail() {
 
     fetchRecord();
     fetchImp();
-  }, []);
+  },[]);
 
   return (
     <>

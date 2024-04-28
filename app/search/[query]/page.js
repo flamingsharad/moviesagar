@@ -35,7 +35,7 @@ const SearchPage = () => {
     };
 
     fetchData(); // Fetch data on component mount
-  }, [currentPathname]); // Re-run effect when pathname changes
+  },[currentPathname]); // Re-run effect when pathname changes
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -50,7 +50,7 @@ const SearchPage = () => {
     <div>
       <div className={styles.container}>
         <div className={styles.wrapper3}>
-          <h1>Search Results for "{extractedID}"</h1>
+          <h1>Search Results for &quot;{extractedID}&quot;</h1>
           <div className={styles.wrapper21}>
           {records.map((record) => (
             <article onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>

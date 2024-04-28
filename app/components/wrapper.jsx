@@ -12,7 +12,7 @@ export function TextOverflowWithEllipsis({ children, className, maxCharacters = 
   
       const textWidth = element.textContent.length; // Get text length in characters
       setIsTruncated(textWidth > maxCharacters);
-    }, [maxCharacters]);
+    },[maxCharacters]);
   
     return (
       <h4
