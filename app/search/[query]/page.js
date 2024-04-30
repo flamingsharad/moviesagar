@@ -7,6 +7,8 @@ import { TextOverflowWithEllipsis } from '../../components/wrapper';
 import Img from '../../components/Img';
 import fetchRecordsSearch from '../../utils/fetch'; // Adjust path as needed
 
+export const runtime = 'edge';
+
 const SearchPage = () => {
   const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
