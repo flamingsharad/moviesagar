@@ -50,7 +50,6 @@ export default function Detail() {
       try {
         const notices = await fetchNotice();
         setNotice(notices);
-        console.log(notice)
       } catch (error) {
         setError(error.message);
       } finally {

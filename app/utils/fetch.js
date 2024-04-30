@@ -49,7 +49,6 @@ export default async function fetchRecordsSearch(searchTerm = '') { // Pass opti
     const url = `/${baseId}/${tableName}?filterByFormula=SEARCH("${searchTerm}",Name)` // Filter by Name field
     const response = await axiosInstance.get(url);
     const records = response.data.records;
-    // console.log(records)
     return records;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -61,7 +60,6 @@ export async function fetchRecordById(id) {
   try {
     const response = await axiosInstance.get(`/${baseId}/${tableName}/${id}`);
     const record = response.data;
-    console.log(record)
     return record;
   } catch (error) {
     console.error('Error fetching data:', error);

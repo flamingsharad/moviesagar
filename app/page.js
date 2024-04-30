@@ -29,7 +29,6 @@ export default function Home() {
       try {
         const fetchedRecords = await fetchRecords();
         setRecords(fetchedRecords);
-        console.log(fetchedRecords);
       } catch (error) {
         setError(error.message);
       } finally {
