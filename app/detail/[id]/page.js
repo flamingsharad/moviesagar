@@ -6,8 +6,6 @@ import { fetchRecordById, fetchNotice } from '../../utils/fetch';
 import { FaCalendarAlt } from "react-icons/fa";
 import Img from '../../components/Img'; // Replace with your actual image component
 
-export const runtime = 'edge';
-
 export default function Detail() {
   const [record, setRecord] = useState(null);
   const [notice, setNotice] = useState([]);
@@ -57,7 +55,6 @@ export default function Detail() {
         setIsLoading(false);
       }
     }
-
     fetchRecord();
     fetchImp();
   },[]);

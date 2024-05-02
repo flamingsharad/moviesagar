@@ -1,5 +1,7 @@
 "use client"
-import { useRouter } from 'next/navigation';
+
+import Link from 'next/link';
+import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Img from './components/Img';
 import { TextOverflowWithEllipsis } from './components/wrapper';
@@ -12,7 +14,6 @@ export default function Home() {
   const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const router = useRouter();
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -22,8 +23,6 @@ export default function Home() {
 
     return `${day}-${month}-${year}`;
   }
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -58,9 +57,9 @@ export default function Home() {
         </>
       ) : error ? (
         <>
-          <head>
+          <Head>
             <title>{error}</title>
-          </head>
+          </Head>
           <div className={styles.container}>
             <div className={styles.wrapper2}>
               <div className={styles.error}>
@@ -74,13 +73,14 @@ export default function Home() {
           </div>
         </>
       ) : (
-        <><head>
+        <><Head>
           <title>MovieSagar</title>
-        </head>
+        </Head>
           <div className={styles.container}>
             <div className={styles.wrapper}>
               {records.map((record) => (
-                <article onClick={() => router.push(`/detail/${record.id}`)} className={styles.card} key={record.id}>
+                
+                <article className={styles.card} key={record.id}><Link href={`/detail/${record.id}`}>
                   <div className={styles.imagecard}>
                     <Img className={styles.Img} src={record?.fields?.poster[0]?.url} />
                   </div>
@@ -95,7 +95,9 @@ export default function Home() {
                   <TextOverflowWithEllipsis className={styles.title} maxCharacters={120}>
                     {record?.fields?.Name}
                   </TextOverflowWithEllipsis>
-                </article>
+                  </Link>
+                 </article>
+                
               ))}
             </div>
           </div></>
