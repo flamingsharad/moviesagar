@@ -12,6 +12,9 @@
   font-family: "poppins";
   text-decoration: none;
 }
+.color{
+  color: red;
+}
 body {
   background-color: #111111f4;
 }

@@ -1,20 +1,39 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { fetchNotice } from '../../utils/fetch';
 
 const Navbar = () => {
+  const [notice, setNotice] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
   const toastId = React.useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  useEffect(() => {
+    const fetchImp = async () =>{
+      try {
+        const notices = await fetchNotice();
+        setNotice(notices);
+        console.log(notice)
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchImp();
+  },[])
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -43,7 +62,7 @@ const Navbar = () => {
       <div className={styles.wrapper}>
         <nav className={styles.nav}>
           <div className={styles.left}>
-            <h1 className={styles.logo}>MovieSagar</h1>
+            <a href="/" className={styles.logo}>Movie<span className={styles.color}>Sagar</span></a>
           </div>
           <div className={styles.right}>
             <div className={styles.leftt}>
@@ -92,6 +111,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          <pre className={styles.notice}>{notice?.fields?.Notice}</pre>
         </nav>
       </div>
     </div>
