@@ -101,15 +101,15 @@ export default function Detail() {
                       <div className={styles.line}></div>
                     </div>
                     <div className={styles.flexx}>
-                      <div className={styles.ddff} >✅ Download {record?.fields?.title}. This is a {record?.fields?.country} movie and Available in
-                        <span className={styles.p}>480p,</span>
+                      <div className={styles.ddff} >✅ Download {record?.fields?.title}. This is a {record?.fields?.country} movie and Available in 
+                        <span className={styles.p}> 480p,</span>
                         <span className={styles.pp}> 720p,</span> and
                         <span className={styles.ppp}> 1080p</span> in MKV Format. This is one of the best movie based on
                         {genre.map((genre, index) => (
                           <span className={styles.color} key={index}>  {/* Use index as key */}
-                            {genre} {index === genre.length - 1 ? '.' : ','}
+                            {genre} {index === genre.length + 1 ? '.' : ','}
                           </span>
-                        ))}
+                        ))}.
 
                       </div>
                       <div className={styles.ddff} ><span className={styles.pd}>MovieSagar </span>{notice?.fields?.Name}</div>

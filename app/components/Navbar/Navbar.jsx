@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -21,39 +22,40 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const fetchImp = async () =>{
+    const fetchNotices = async () => {
       try {
-        const notices = await fetchNotice();
-        setNotice(notices);
-        console.log(notice)
-      } catch (error) {
-        setError(error.message);
+        const fetchedNotices = await fetchNotice();
+        setNotice(fetchedNotices);
+      } catch (err) {
+        setError(err.message);
       } finally {
         setIsLoading(false);
       }
-    }
-    fetchImp();
-  },[])
+    };
+
+    fetchNotices();
+  }, []);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      event.preventDefault(); 
+      event.preventDefault();
       if (searchTerm !== "") {
-        if(! toast.isActive(toastId.current)) {
+        if (!toast.isActive(toastId.current)) {
           toastId.current = toast(<h1 className={styles.icc}>1 min ruk!!</h1>);
         }
-        router.push(`/search/${searchTerm}`); // Navigate to the search route with the query
+        router.push(`/search/${searchTerm}`); // Navigate to search route
       } else {
-        if(! toast.isActive(toastId.current)) {
+        if (!toast.isActive(toastId.current)) {
           toastId.current = toast(<h1 className={styles.icc}>Search is Empty Bro!</h1>);
         }
       }
     }
   };
+
   const handleClick = (event) => {
     if (searchTerm !== "") {
-      event.preventDefault(); // Prevent default form submission behavior
-      router.push(`/search/${searchTerm}`); // Navigate to the search route with the query
+      event.preventDefault(); // Prevent default form submission
+      router.push(`/search/${searchTerm}`); // Navigate to search route
     }
   };
 
@@ -62,28 +64,24 @@ const Navbar = () => {
       <div className={styles.wrapper}>
         <nav className={styles.nav}>
           <div className={styles.left}>
-            <a href="/" className={styles.logo}>Movie<span className={styles.color}>Sagar</span></a>
+            <Link href="/" className={styles.logo}>Movie<span className={styles.color}>Sagar</span></Link>
           </div>
           <div className={styles.right}>
             <div className={styles.leftt}>
               <ul className={styles.ul}>
-                <Link href={`/`}>
+                <Link href="/">
                   <li className={styles.li}>Home</li>
                 </Link>
-                <Link href={`/`}>
+                <Link href="/">
                   <li className={styles.li}>Web Series</li>
                 </Link>
-                <Link href={`/`}>
+                <Link href="/">
                   <li className={styles.li}>Dual Audio</li>
                 </Link>
                 <li className={styles.li}>
                   <select className={styles.font} name="genre" id="genre">
-                    <option className={styles.opt} value="/">
-                      Genre
-                    </option>
-                    <option className={styles.opt} value="/">
-                      Action
-                    </option>
+                    <option className={styles.opt} value="/">Genre</option>
+                    <option className={styles.opt} value="/">Action</option>
                   </select>
                 </li>
               </ul>
@@ -99,11 +97,7 @@ const Navbar = () => {
                     type="search"
                     className={styles.inputsearch}
                   />
-                  <button
-                    type="submit"
-                    onClick={handleClick}
-                    className={styles.search}
-                  >
+                  <button type="submit" onClick={handleClick} className={styles.search}>
                     <FaSearch className={styles.icon} />
                   </button>
                   <ToastContainer />
@@ -111,7 +105,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <pre className={styles.notice}>{notice?.fields?.Notice}</pre>
+          <pre className={`${styles.notice} ${styles.responsiveNotice}`}> {notice?.fields?.Notice}</pre>
         </nav>
       </div>
     </div>
