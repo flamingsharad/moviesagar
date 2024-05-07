@@ -17,6 +17,7 @@ const SearchPage = () => {
   const regex = /^\/search\/(.*)$/;
   const match = currentPathname.match(regex);
   const extractedID = match ? decodeURIComponent(match[1]) : ''; // Regular expression to extract ID from URL
+  const smallId = extractedID.toLowerCase();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +25,7 @@ const SearchPage = () => {
       setError(null);
 
       try {
-        const data = await fetchRecordsSearch(`${extractedID}`); // Fetch data using extracted ID
+        const data = await fetchRecordsSearch(`${smallId}`); // Fetch data using extracted ID
         setRecords(data);
         console.log(data)
       } catch (error) {

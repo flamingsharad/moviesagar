@@ -46,7 +46,7 @@ export async function fetchNotice() {
 
 export default async function fetchRecordsSearch(searchTerm = '') { // Pass optional search term
   try {
-    const url = `/${baseId}/${tableName}?filterByFormula=SEARCH("${searchTerm}",Name)` // Filter by Name field
+    const url = `/${baseId}/${tableName}?filterByFormula=SEARCH("${searchTerm}",Search)` // Filter by Name field
     const response = await axiosInstance.get(url);
     const records = response.data.records;
     return records;

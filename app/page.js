@@ -1,8 +1,8 @@
 "use client"
 
 import Link from 'next/link';
-import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Img from './components/Img';
 import { TextOverflowWithEllipsis } from './components/wrapper';
 import { fetchRecords } from './utils/fetch'; // Assuming fetchData.js is in the same directory
@@ -57,9 +57,9 @@ export default function Home() {
         </>
       ) : error ? (
         <>
-          <Head>
+          <head>
             <title>{error}</title>
-          </Head>
+          </head>
           <div className={styles.container}>
             <div className={styles.wrapper2}>
               <div className={styles.error}>
@@ -73,16 +73,16 @@ export default function Home() {
           </div>
         </>
       ) : (
-        <><Head>
+        <><head>
           <title>MovieSagar</title>
-        </Head>
+        </head>
           <div className={styles.container}>
             <div className={styles.wrapper}>
               {records.map((record) => (
                 
                 <article className={styles.card} key={record.id}><Link href={`/detail/${record.id}`}>
                   <div className={styles.imagecard}>
-                    <Img className={styles.Img} src={record?.fields?.poster[0]?.url} />
+                    <Image className={styles.Img} src={record?.fields?.poster[0]?.url} loading="lazy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   </div>
                   <div className={styles.flexx}>
                     <CiCalendar className={styles.icon} />
