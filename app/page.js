@@ -42,6 +42,9 @@ export default function Home() {
     <>
       {isLoading ? (
         <>
+        <head>
+        <meta name="netpub_d310005f021b3343a5e71eedecb48571" content="d310005f021b3343a5e71eedecb48571_4ea7b8c9653876233f2bffc94114b139" />
+        </head>
           <div className='loader'>
             <div id="c-2">
               <svg viewBox="0 0 100 100">
