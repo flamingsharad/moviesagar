@@ -1,7 +1,7 @@
 export default function manifest() {
     return {
       name: 'MovieSagar',
-      short_name: 'MovieSagar is only profilio',
+      short_name: 'MovieSagar',
       description: 'Hello Brother',
       start_url: '/',
       display: 'standalone',
