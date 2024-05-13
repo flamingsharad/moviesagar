@@ -5,7 +5,7 @@ export default function manifest() {
       description: 'Hello Brother',
       start_url: '/',
       display: 'standalone',
-      background_color: '#fff',
+      background_color: '#000',
       theme_color: '#fff',
       icons: [
         {

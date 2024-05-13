@@ -32,10 +32,11 @@
   background-color: #111111c6;
 }
 .wrapper21 {
-  display: flex;
+  display: grid;
   align-content: center;
-  justify-content: center;
   margin: auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
   flex-wrap: wrap;
 }
 .wrapper4 {

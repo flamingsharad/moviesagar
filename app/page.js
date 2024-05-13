@@ -42,9 +42,6 @@ export default function Home() {
     <>
       {isLoading ? (
         <>
-        <head>
-        <meta name="netpub_d310005f021b3343a5e71eedecb48571" content="d310005f021b3343a5e71eedecb48571_4ea7b8c9653876233f2bffc94114b139" />
-        </head>
           <div className='loader'>
             <div id="c-2">
               <svg viewBox="0 0 100 100">
@@ -78,7 +75,6 @@ export default function Home() {
       ) : (
         <><head>
           <title>MovieSagar</title>
-          <meta name="netpub_d310005f021b3343a5e71eedecb48571" content="d310005f021b3343a5e71eedecb48571_4ea7b8c9653876233f2bffc94114b139" />
         </head>
           <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -86,7 +82,7 @@ export default function Home() {
                 
                 <article className={styles.card} key={record.id}><Link href={`/detail/${record.id}`}>
                   <div className={styles.imagecard}>
-                    <Image className={styles.Img} src={record?.fields?.poster[0]?.url} loading="lazy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    <Image className={styles.Img} alt={record?.fields?.Name} src={record?.fields?.poster[0]?.url} loading="lazy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   </div>
                   <div className={styles.flexx}>
                     <CiCalendar className={styles.icon} />

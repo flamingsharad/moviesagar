@@ -53,9 +53,16 @@ const Navbar = () => {
   };
 
   const handleClick = (event) => {
+    event.preventDefault();
     if (searchTerm !== "") {
-      event.preventDefault(); // Prevent default form submission
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast(<h1 className={styles.icc}>1 min ruk!!</h1>);
+      }
       router.push(`/search/${searchTerm}`); // Navigate to search route
+    } else {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast(<h1 className={styles.icc}>Search is Empty Bro!</h1>);
+      }
     }
   };
 
@@ -69,15 +76,15 @@ const Navbar = () => {
           <div className={styles.right}>
             <div className={styles.leftt}>
               <ul className={styles.ul}>
-                <Link href="/">
-                  <li className={styles.li}>Home</li>
-                </Link>
-                <Link href="/">
-                  <li className={styles.li}>Web Series</li>
-                </Link>
-                <Link href="/">
-                  <li className={styles.li}>Dual Audio</li>
-                </Link>
+                
+                  <li className={styles.li}><Link className={styles.li} href="/">Home</Link></li>
+                
+                
+                  <li className={styles.li}><Link className={styles.li} href="/">Web Series</Link></li>
+                
+                
+                  <li className={styles.li}><Link  href="/">Dual Audio</Link></li>
+                
                 <li className={styles.li}>
                   <select className={styles.font} name="genre" id="genre">
                     <option className={styles.opt} value="/">Genre</option>
