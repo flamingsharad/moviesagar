@@ -41,15 +41,6 @@ a {
   text-decoration: underline;
   color: rgb(22, 178, 239);
 }
-#c-2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-}
-
 @keyframes animation {
   0% {
     stroke-dasharray: 1 98;
@@ -66,18 +57,6 @@ a {
 }
 .toast{
   color: #111111f4;
-}
-#spinner {
-  transform-origin: center;
-  animation-name: animation;
-  animation-duration: 1.2s;
-  animation-timing-function: cubic-bezier;
-  animation-iteration-count: infinite;
-  fill: transparent;
-  stroke: #dd2476;
-  stroke-width: 7px;
-  stroke-linecap: round;
-  filter: url(#shadow);
 }
 .diverror{
   display: flex;

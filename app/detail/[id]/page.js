@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import { useRouter, usePathname } from 'next/navigation';
 import { fetchRecordById, fetchNotice } from '../../utils/fetch';
 import { FaCalendarAlt } from "react-icons/fa";
+import Loader from '../../components/Loader';
 import Img from '../../components/Img'; // Replace with your actual image component
 
 export default function Detail() {
@@ -65,18 +66,11 @@ export default function Detail() {
       {isLoading ? (
         <><head>
           <title>MovieSagar</title>
-        </head><div className='loader'>
-            <div id="c-2">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <filter id="shadow">
-                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#fc6767" />
-                  </filter>
-                </defs>
-                <circle id="spinner" cx="50" cy="50" r="45" />
-              </svg>
-            </div>
-          </div></>
+        </head><div className={styles.container}>
+            <div className={styles.wrapper}>
+              <Loader />
+              </div>
+            </div></>
       ) : error ? (
         <div className="error">
           <div className="diverror"><h1 className="errorh1">Error : </h1><span className="errormain"> {error}</span>

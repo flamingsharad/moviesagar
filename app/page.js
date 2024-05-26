@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Img from './components/Img';
+import Loader from './components/Loader';
 import { TextOverflowWithEllipsis } from './components/wrapper';
 import { fetchRecords } from './utils/fetch'; // Assuming fetchData.js is in the same directory
 import styles from "./page.module.css";
@@ -42,18 +42,12 @@ export default function Home() {
     <>
       {isLoading ? (
         <>
-          <div className='loader'>
-            <div id="c-2">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <filter id="shadow">
-                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#fc6767" />
-                  </filter>
-                </defs>
-                <circle id="spinner" cx="50" cy="50" r="45" />
-              </svg>
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+              <Loader />
+              </div>
             </div>
-          </div>
+         
         </>
       ) : error ? (
         <>
