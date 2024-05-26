@@ -48,7 +48,7 @@ const SearchPage = () => {
   const handleEmptyRecords = () => {
     return records.length === 0 ? (
       <div className={styles.noResults}>
-        <p>No records found for your search term: "{extractedID}"</p>
+        <p>No records found for your search term: &quot;{extractedID}&quot;</p>
       </div>
     ) : null;
   };
