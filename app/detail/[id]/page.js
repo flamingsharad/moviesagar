@@ -69,8 +69,8 @@ export default function Detail() {
         </head><div className={styles.container}>
             <div className={styles.wrapper}>
               <Loader />
-              </div>
-            </div></>
+            </div>
+          </div></>
       ) : error ? (
         <div className="error">
           <div className="diverror"><h1 className="errorh1">Error : </h1><span className="errormain"> {error}</span>
@@ -125,6 +125,8 @@ export default function Detail() {
                     <h1 className={styles.fgh}>1080p</h1>
                     <a className="bn5" target='_blank' href={record?.fields.high}><h4 className={styles.text} >Download Now</h4></a>
                   </div>
+                  <div className={styles.lines}></div>
+                  <div><iframe className={styles.airtableembed} src="https://airtable.com/embed/appRrsSJ1XWcyXZyi/pagHpgVCjG1MTv4uR/form" frameborder="0" onmousewheel="" width="100%" height="533"></iframe></div>
                   <div className={styles.lines}></div>
                   <div className={styles.flexd}>
                     <h1 className="coo"><Link href="/" className="cooo">MovieSagar </Link>does not host any files on it’s own . All files or contents are hosted on third party websites. <Link href="/" className="cooo">MovieSagar </Link>does not accept responsibility for contents hosted on third party websites. We just index those links which are already available in internet.</h1>

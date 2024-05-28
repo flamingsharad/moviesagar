@@ -1,168 +1,174 @@
 /* Overall Structure and Responsiveness */
-  
-  .container {
-    display: flex;
-    flex-direction: column; /* Start with column layout for mobile */
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 1rem; /* Add some padding for visual appeal */
-  }
-  
-  /* Wrapper (Adjust sizing and spacing as needed) */
-  
-  .wrapper {
-    display: flex;
-    flex-wrap: wrap; /* Enable wrapping on smaller screens */
-    width: 80%; /* Adjust width for larger screens */
-    gap: 15px;
-    padding: 15px;
-    background-color: #111111c6;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  }
-  
-  /* Flex Items (Adjust styles for specific elements) */
-  
-  .flex {
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ensure full width on smaller screens */
-  }
-  
-  /* Other Elements (Adjust styles as needed) */
-  
-  .line,
-  .lines {
-    height: 2px;
-    width: 100%; /* Ensures full-width lines on all screens */
-    background-color: rgba(240, 248, 255, 0.289);
-    margin: 0.5rem auto; /* Add some margin for better spacing */
-  }
-  
-  .cal {
-    margin-right: 4px;
-  }
-  
-  .date {
-    color: gray;
-    font-size: 12px;
-    margin-right: 0; /* Remove large margin */
-    margin-bottom: 1vh;
-  }
-  
-  .p {
-    color: orange;
-  }
-  
-  .pp {
-    color: rgba(0, 191, 255, 0.799);
-  }
-  .btn{
-    width: 15rem;
-    background-color: green;
-    height: 3rem;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .ppp {
-    color: red;
-  }
-  
-  .color {
-    color: yellow;
-  }
-  
-  .flexx {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .flexd {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .pd {
-    color: gold;
-  }
-  
-  .text {
-    text-align: center;
-    color: goldenrod;
-    font-size: 1.5rem;
-    font-weight: 900;
-  }
-  
-  .movie {
-    font-size: 18px;
-    font-weight: 500;
-  }
-  
-  .screen {
-    text-align: center;
-    text-decoration: underline;
-    font-size: 2.5rem;
-    color: rgb(255, 221, 0);
-  }
-  
-  .imgcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .img {
-    max-height: 800px; /* Adjust as needed for your images */
-    width: 100%;
-  }
-  @media only screen and (max-width: 767px) {
-    .container{
-      display: block;
-      width: 99%;
-    }
-    .wrapper{
-      overflow-x: hidden;
-      justify-content: center;
-      margin: 0;
-      width: 100%;
-    }
-    .titlel{
-      font-size: 1rem;
-    }
-    .text{
-      font-size: 1rem;
-    }
-    .date{
-      position: static;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .flexx{
-      width: 100%;
-      gap: 1rem;
-    }
-    .movie{
-      display: none;
-    }
-    .screen{
-      font-size: 1rem;
-    }
-    .fgh{
-      font-size: 1rem;
-    }
-    .ddff{
-      flex-direction: column;
-      padding-left: 0.5rem;
 
-      font-size: 0.7rem;
-    }
+.container {
+  display: flex;
+  flex-direction: column; /* Start with column layout for mobile */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem; /* Add some padding for visual appeal */
+}
+.airtableembed {
+  background: #111111c6;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+/* Wrapper (Adjust sizing and spacing as needed) */
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping on smaller screens */
+  width: 80%; /* Adjust width for larger screens */
+  gap: 15px;
+  padding: 15px;
+  background-color: #111111c6;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+/* Flex Items (Adjust styles for specific elements) */
+
+.flex {
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure full width on smaller screens */
+}
+
+/* Other Elements (Adjust styles as needed) */
+
+.line,
+.lines {
+  height: 2px;
+  width: 100%; /* Ensures full-width lines on all screens */
+  background-color: rgba(240, 248, 255, 0.289);
+  margin: 0.5rem auto; /* Add some margin for better spacing */
+}
+
+.cal {
+  margin-right: 4px;
+}
+
+.date {
+  color: gray;
+  font-size: 12px;
+  margin-right: 0; /* Remove large margin */
+  margin-bottom: 1vh;
+}
+
+.p {
+  color: orange;
+}
+
+.pp {
+  color: rgba(0, 191, 255, 0.799);
+}
+.btn {
+  width: 15rem;
+  background-color: green;
+  height: 3rem;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.ppp {
+  color: red;
+}
+
+.color {
+  color: yellow;
+}
+
+.flexx {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.flexd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pd {
+  color: gold;
+}
+
+.text {
+  text-align: center;
+  color: goldenrod;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.movie {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.screen {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 2.5rem;
+  color: rgb(255, 221, 0);
+}
+
+.imgcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.img {
+  max-height: 800px; /* Adjust as needed for your images */
+  width: 100%;
+}
+@media only screen and (max-width: 767px) {
+  .container {
+    display: block;
+    width: 99%;
   }
+  .wrapper {
+    overflow-x: hidden;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+  }
+  .titlel {
+    font-size: 1rem;
+  }
+  .text {
+    font-size: 1rem;
+  }
+  .date {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .flexx {
+    width: 100%;
+    gap: 1rem;
+  }
+  .movie {
+    display: none;
+  }
+  .screen {
+    font-size: 1rem;
+  }
+  .fgh {
+    font-size: 1rem;
+  }
+  .ddff {
+    flex-direction: column;
+    padding-left: 0.5rem;
+
+    font-size: 0.7rem;
+  }
+}
