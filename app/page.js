@@ -76,7 +76,7 @@ export default function Home() {
                 
                 <article className={styles.card} key={record.id}><Link href={`/detail/${record.id}`}>
                   <div className={styles.imagecard}>
-                    <Image className={styles.Img} alt={record?.fields?.Name} src={record?.fields?.poster[0]?.url} loading="lazy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    <Image className={styles.Img} alt={record?.fields?.poster[0]?.filename} src={record?.fields?.poster[0]?.url} loading="lazy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   </div>
                   <div className={styles.flexx}>
                     <CiCalendar className={styles.icon} />
